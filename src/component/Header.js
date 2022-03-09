@@ -18,7 +18,6 @@ export function Header() {
     <Box
       sx={{
         width: 768,
-        mb: 3,
         bgcolor: "white",
         border: " 1px solid gray",
         borderRadius: 4,
