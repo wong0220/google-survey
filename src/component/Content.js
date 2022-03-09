@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Box, TextField } from "@mui/material";
+import { SelectBox } from "./SelectBox";
 
 export function Content() {
   const [qstnTitle, setQstnTitle] = useState("제목없는 질문");
@@ -25,6 +26,7 @@ export function Content() {
         }}
         onChange={(event) => setQstnTitle(event.target.value)}
       />
+      <SelectBox />
     </Box>
   );
 }
