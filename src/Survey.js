@@ -23,7 +23,7 @@ function Survey() {
         <Content />
         {!!totalAnswers.length &&
           totalAnswers.map((answer) => {
-            return <Content key={answer} />;
+            return <Content key={answer} nanoID={answer} />;
           })}
       </Box>
       <AddCircleRoundedIcon

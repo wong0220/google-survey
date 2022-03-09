@@ -7,6 +7,7 @@ export function SelectBox() {
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
   return (
     <Select value={age} onChange={handleChange} sx={{ width: "30%", ml: 5 }}>
       <MenuItem value={10}>단답형</MenuItem>
