@@ -7,9 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Increment } from "./features/content/contentSlice";
 
 function Survey() {
-  const totalAnswers = useSelector((state) => state.content.value);
+  const mltplChcOp = useSelector((state) => state.content.mltplChcOp);
+  const numberOfAnswers = Object.keys(mltplChcOp);
   const dispatch = useDispatch();
-  console.log(totalAnswers);
+
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box
@@ -20,9 +21,8 @@ function Survey() {
         }}
       >
         <Header />
-        <Content />
-        {!!totalAnswers.length &&
-          totalAnswers.map((answer) => {
+        {!!numberOfAnswers.length &&
+          numberOfAnswers.map((answer) => {
             return <Content key={answer} nanoID={answer} />;
           })}
       </Box>

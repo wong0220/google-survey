@@ -1,16 +1,19 @@
-import { useState } from "react";
-import { Box, TextField } from "@mui/material";
+import { Box, TextField, Divider } from "@mui/material";
 import { SelectBox } from "./SelectBox";
 import { RadioBtn } from "./RadioBtn";
 import { SetAnsTitle } from "../features/content/contentSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { RadioOpt } from "./RadioOpt";
 
 export function Content({ nanoID }) {
   const answerTitle = useSelector(
     (state) => state.content.answerTitles[nanoID]
   );
-  const dispatch = useDispatch();
+  const totalOps = useSelector((state) => state.content.mltplChcOp[nanoID]);
+  const numberOfOps = Object.keys(totalOps);
 
+  const temp = useSelector((state) => console.log(state.content));
+  const dispatch = useDispatch();
   return (
     <Box
       sx={{
@@ -25,7 +28,6 @@ export function Content({ nanoID }) {
     >
       <TextField
         id="filled-helperText"
-        defaultValue="제목없는 질문"
         value={answerTitle}
         variant="filled"
         sx={{
@@ -36,7 +38,11 @@ export function Content({ nanoID }) {
         }
       />
       <SelectBox />
-      <RadioBtn />
+      {numberOfOps.map((opt) => (
+        <RadioBtn key={opt} contentId={nanoID} nanoOptID={opt} />
+      ))}
+      <RadioOpt contentID={nanoID} />
+      <Divider sx={{ mt: 3 }} />
     </Box>
   );
 }
