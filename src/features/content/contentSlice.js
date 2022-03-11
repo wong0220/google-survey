@@ -1,8 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  answerTitles: { firstContent: "제목없는 질문" },
-  mltplChcOp: { firstContent: { firstOpt: "옵션" } },
+  mltplChcOp: {
+    firstContent: {
+      essential: false,
+      content: "제목없는 질문",
+      opt: { firstOpt: "옵션" },
+    },
+  },
 };
 
 export const contentSlice = createSlice({
@@ -10,15 +15,12 @@ export const contentSlice = createSlice({
   initialState,
   reducers: {
     Increment: (state, action) => {
-      state.answerTitles = {
-        ...state.answerTitles,
-        [action.payload]: "제목없는 질문",
-      };
       state.mltplChcOp = {
         ...state.mltplChcOp,
         [action.payload]: {
-          ...state.mltplChcOp[action.payload],
-          firstOpt: "옵션",
+          essential: false,
+          content: "제목없는 질문",
+          opt: { firstOpt: "옵션" },
         },
       };
     },
@@ -28,15 +30,21 @@ export const contentSlice = createSlice({
         ...state.mltplChcOp,
         [action.payload[1]]: {
           ...state.mltplChcOp[action.payload[1]],
-          [action.payload[0]]: "옵션",
+          opt: {
+            ...state.mltplChcOp[action.payload[1]].opt,
+            [action.payload[0]]: "옵션",
+          },
         },
       };
     },
 
     SetAnsTitle: (state, action) => {
-      state.answerTitles = {
-        ...state.answerTitles,
-        [action.payload[0]]: action.payload[1],
+      state.mltplChcOp = {
+        ...state.mltplChcOp,
+        [action.payload[0]]: {
+          ...state.mltplChcOp[action.payload[0]],
+          content: action.payload[1],
+        },
       };
     },
 
@@ -45,7 +53,10 @@ export const contentSlice = createSlice({
         ...state.mltplChcOp,
         [action.payload[0]]: {
           ...state.mltplChcOp[action.payload[0]],
-          [action.payload[1]]: action.payload[2],
+          opt: {
+            ...state.mltplChcOp[action.payload[0]].opt,
+            [action.payload[1]]: action.payload[2],
+          },
         },
       };
     },

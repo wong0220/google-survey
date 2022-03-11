@@ -7,12 +7,13 @@ import { RadioOpt } from "./RadioOpt";
 
 export function Content({ nanoID }) {
   const answerTitle = useSelector(
-    (state) => state.content.answerTitles[nanoID]
+    (state) => state.content.mltplChcOp[nanoID].content
   );
-  const totalOps = useSelector((state) => state.content.mltplChcOp[nanoID]);
+
+  const totalOps = useSelector((state) => state.content.mltplChcOp[nanoID].opt);
   const numberOfOps = Object.keys(totalOps);
 
-  const temp = useSelector((state) => console.log(state.content));
+  const temp = useSelector((state) => console.log(state.content.mltplChcOp));
   const dispatch = useDispatch();
   return (
     <Box

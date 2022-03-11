@@ -8,7 +8,7 @@ export function RadioBtn({ contentId, nanoOptID }) {
   const optID = nanoOptID === undefined ? "firstOpt" : nanoOptID;
 
   const optContent = useSelector(
-    (state) => state.content.mltplChcOp[contentID][optID]
+    (state) => state.content.mltplChcOp[contentID].opt[optID]
   );
 
   //   const temp = useSelector((state) =>
