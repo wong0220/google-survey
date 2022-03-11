@@ -4,16 +4,16 @@ import { RadioBtn } from "./RadioBtn";
 import { SetAnsTitle } from "../features/content/contentSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RadioOpt } from "./RadioOpt";
+import { Etc } from "./Etc";
 
 export function Content({ nanoID }) {
   const answerTitle = useSelector(
     (state) => state.content.mltplChcOp[nanoID].content
   );
-
+  const isEtc = useSelector((state) => state.content.mltplChcOp[nanoID].etc);
   const totalOps = useSelector((state) => state.content.mltplChcOp[nanoID].opt);
   const numberOfOps = Object.keys(totalOps);
 
-  const temp = useSelector((state) => console.log(state.content.mltplChcOp));
   const dispatch = useDispatch();
   return (
     <Box
@@ -42,6 +42,7 @@ export function Content({ nanoID }) {
       {numberOfOps.map((opt) => (
         <RadioBtn key={opt} contentId={nanoID} nanoOptID={opt} />
       ))}
+      {isEtc && <Etc />}
       <RadioOpt contentID={nanoID} />
       <Divider sx={{ mt: 3 }} />
     </Box>

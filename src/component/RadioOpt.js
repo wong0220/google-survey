@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import { useDispatch } from "react-redux";
-import { OptIncrement } from "../features/content/contentSlice";
+import { OptIncrement, SetEtc } from "../features/content/contentSlice";
 import { nanoid } from "nanoid";
 
 export function RadioOpt({ contentID }) {
@@ -23,7 +23,14 @@ export function RadioOpt({ contentID }) {
         <CircleOutlinedIcon /> 옵션추가
       </Box>
       <Box sx={{ ml: 1 }}>또는</Box>
-      <Box sx={{ color: "blue", ml: 1, cursor: "pointer" }}>'기타 추가'</Box>
+      <Box
+        sx={{ color: "blue", ml: 1, cursor: "pointer" }}
+        onClick={() => {
+          dispatch(SetEtc(contentID));
+        }}
+      >
+        '기타 추가'
+      </Box>
     </Box>
   );
 }

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   mltplChcOp: {
     firstContent: {
+      etc: false,
       essential: false,
       content: "제목없는 질문",
       opt: { firstOpt: "옵션" },
@@ -18,6 +19,7 @@ export const contentSlice = createSlice({
       state.mltplChcOp = {
         ...state.mltplChcOp,
         [action.payload]: {
+          etc: false,
           essential: false,
           content: "제목없는 질문",
           opt: { firstOpt: "옵션" },
@@ -60,10 +62,20 @@ export const contentSlice = createSlice({
         },
       };
     },
+
+    SetEtc: (state, action) => {
+      state.mltplChcOp = {
+        ...state.mltplChcOp,
+        [action.payload]: {
+          ...state.mltplChcOp[action.payload],
+          etc: true,
+        },
+      };
+    },
   },
 });
 
-export const { Increment, SetAnsTitle, SetMltAns, OptIncrement } =
+export const { Increment, SetAnsTitle, SetMltAns, OptIncrement, SetEtc } =
   contentSlice.actions;
 
 export default contentSlice.reducer;
