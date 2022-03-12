@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RadioOpt } from "./RadioOpt";
 import { Etc } from "./Etc";
 import { BottomBar } from "./BottomBar";
+import { Answer } from "./Answer";
 
 export function Content({ nanoID }) {
   const answerTitle = useSelector(
@@ -14,6 +15,7 @@ export function Content({ nanoID }) {
   const isEtc = useSelector((state) => state.content.mltplChcOp[nanoID].etc);
   const totalOps = useSelector((state) => state.content.mltplChcOp[nanoID].opt);
   const numberOfOps = Object.keys(totalOps);
+  const optType = useSelector((state) => state.content.mltplChcOp[nanoID].type);
   const dispatch = useDispatch();
   return (
     <Box
@@ -39,11 +41,19 @@ export function Content({ nanoID }) {
         }
       />
       <SelectBox contentID={nanoID} />
-      {numberOfOps.map((opt) => (
-        <RadioBtn key={opt} contentId={nanoID} nanoOptID={opt} />
-      ))}
+      {optType === 30 || optType === 40 ? (
+        numberOfOps.map((opt) => (
+          <RadioBtn key={opt} contentId={nanoID} nanoOptID={opt} />
+        ))
+      ) : (
+        <Answer optType={optType} />
+      )}
       {isEtc && <Etc contentID={nanoID} />}
-      <RadioOpt contentID={nanoID} />
+      {optType === 30 || optType === 40 ? (
+        <RadioOpt contentID={nanoID} />
+      ) : (
+        <Box />
+      )}
       <Divider sx={{ mt: 3 }} />
       <BottomBar contentID={nanoID} />
     </Box>

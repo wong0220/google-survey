@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 
 export function Etc({ contentID }) {
   const dispatch = useDispatch();
+
   return (
     <Box sx={{ display: "flex", alignItems: "center", mt: 3 }}>
       <CircleOutlinedIcon sx={{ color: "gray" }} />
