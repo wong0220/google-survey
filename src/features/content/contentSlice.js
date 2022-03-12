@@ -27,6 +27,10 @@ export const contentSlice = createSlice({
       };
     },
 
+    Decrement: (state, action) => {
+      delete state.mltplChcOp[action.payload];
+    },
+
     OptIncrement: (state, action) => {
       state.mltplChcOp = {
         ...state.mltplChcOp,
@@ -97,6 +101,7 @@ export const contentSlice = createSlice({
 
 export const {
   Increment,
+  Decrement,
   SetAnsTitle,
   SetMltAns,
   OptIncrement,
