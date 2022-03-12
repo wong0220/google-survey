@@ -5,6 +5,7 @@ import { SetAnsTitle } from "../features/content/contentSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RadioOpt } from "./RadioOpt";
 import { Etc } from "./Etc";
+import { BottomBar } from "./BottomBar";
 
 export function Content({ nanoID }) {
   const answerTitle = useSelector(
@@ -45,6 +46,7 @@ export function Content({ nanoID }) {
       {isEtc && <Etc />}
       <RadioOpt contentID={nanoID} />
       <Divider sx={{ mt: 3 }} />
+      <BottomBar />
     </Box>
   );
 }
