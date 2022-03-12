@@ -1,8 +1,9 @@
 import { Box, Switch, Divider } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { SetEssential } from "../features/content/contentSlice";
+import { SetEssential, SetDuplicate } from "../features/content/contentSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { nanoid } from "nanoid";
 
 export function BottomBar({ contentID }) {
   const dispatch = useDispatch();
@@ -17,7 +18,11 @@ export function BottomBar({ contentID }) {
         mt: 3,
       }}
     >
-      <ContentCopyIcon />
+      <ContentCopyIcon
+        onClick={() => {
+          dispatch(SetDuplicate([contentID, nanoid()]));
+        }}
+      />
       <DeleteIcon sx={{ ml: 2, mr: 3 }} />
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Divider

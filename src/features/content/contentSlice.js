@@ -82,6 +82,16 @@ export const contentSlice = createSlice({
         },
       };
     },
+
+    SetDuplicate: (state, action) => {
+      state.mltplChcOp = {
+        ...state.mltplChcOp,
+        [action.payload[1]]: {
+          ...state.mltplChcOp[action.payload[0]],
+          opt: { ...state.mltplChcOp[action.payload[0]].opt },
+        },
+      };
+    },
   },
 });
 
@@ -92,6 +102,7 @@ export const {
   OptIncrement,
   SetEtc,
   SetEssential,
+  SetDuplicate,
 } = contentSlice.actions;
 
 export default contentSlice.reducer;
