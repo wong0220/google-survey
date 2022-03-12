@@ -111,13 +111,24 @@ export const contentSlice = createSlice({
     },
 
     SetType: (state, action) => {
-      state.mltplChcOp = {
-        ...state.mltplChcOp,
-        [action.payload[0]]: {
-          ...state.mltplChcOp[action.payload[0]],
-          type: action.payload[1],
-        },
-      };
+      if (action.payload[1] === 10 || action.payload[1] === 20) {
+        state.mltplChcOp = {
+          ...state.mltplChcOp,
+          [action.payload[0]]: {
+            ...state.mltplChcOp[action.payload[0]],
+            type: action.payload[1],
+            opt: { firstOpt: "옵션" },
+          },
+        };
+      } else {
+        state.mltplChcOp = {
+          ...state.mltplChcOp,
+          [action.payload[0]]: {
+            ...state.mltplChcOp[action.payload[0]],
+            type: action.payload[1],
+          },
+        };
+      }
     },
   },
 });

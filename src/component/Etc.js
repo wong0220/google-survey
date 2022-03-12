@@ -9,7 +9,7 @@ export function Etc({ contentID }) {
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", mt: 3 }}>
-      <CircleOutlinedIcon sx={{ color: "gray" }} />
+      <CircleOutlinedIcon sx={{ color: "gray", mr: 1 }} />
       <TextField
         defaultValue="기타..."
         variant="standard"
