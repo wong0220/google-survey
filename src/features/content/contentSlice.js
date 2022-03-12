@@ -117,7 +117,17 @@ export const contentSlice = createSlice({
           [action.payload[0]]: {
             ...state.mltplChcOp[action.payload[0]],
             type: action.payload[1],
+            etc: false,
             opt: { firstOpt: "옵션" },
+          },
+        };
+      } else if (action.payload[1] === 50) {
+        state.mltplChcOp = {
+          ...state.mltplChcOp,
+          [action.payload[0]]: {
+            ...state.mltplChcOp[action.payload[0]],
+            etc: false,
+            type: action.payload[1],
           },
         };
       } else {

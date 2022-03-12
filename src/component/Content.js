@@ -17,6 +17,7 @@ export function Content({ nanoID }) {
   const numberOfOps = Object.keys(totalOps);
   const optType = useSelector((state) => state.content.mltplChcOp[nanoID].type);
   const dispatch = useDispatch();
+
   return (
     <Box
       sx={{
@@ -41,7 +42,7 @@ export function Content({ nanoID }) {
         }
       />
       <SelectBox contentID={nanoID} />
-      {optType === 30 || optType === 40 ? (
+      {optType === 30 || optType === 40 || optType === 50 ? (
         numberOfOps.map((opt) => (
           <RadioBtn key={opt} contentId={nanoID} nanoOptID={opt} />
         ))
