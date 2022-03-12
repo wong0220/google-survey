@@ -14,7 +14,6 @@ export function Content({ nanoID }) {
   const isEtc = useSelector((state) => state.content.mltplChcOp[nanoID].etc);
   const totalOps = useSelector((state) => state.content.mltplChcOp[nanoID].opt);
   const numberOfOps = Object.keys(totalOps);
-
   const dispatch = useDispatch();
   return (
     <Box
@@ -46,7 +45,7 @@ export function Content({ nanoID }) {
       {isEtc && <Etc />}
       <RadioOpt contentID={nanoID} />
       <Divider sx={{ mt: 3 }} />
-      <BottomBar />
+      <BottomBar contentID={nanoID} />
     </Box>
   );
 }

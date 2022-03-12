@@ -72,10 +72,26 @@ export const contentSlice = createSlice({
         },
       };
     },
+
+    SetEssential: (state, action) => {
+      state.mltplChcOp = {
+        ...state.mltplChcOp,
+        [action.payload[0]]: {
+          ...state.mltplChcOp[action.payload[0]],
+          essential: action.payload[1],
+        },
+      };
+    },
   },
 });
 
-export const { Increment, SetAnsTitle, SetMltAns, OptIncrement, SetEtc } =
-  contentSlice.actions;
+export const {
+  Increment,
+  SetAnsTitle,
+  SetMltAns,
+  OptIncrement,
+  SetEtc,
+  SetEssential,
+} = contentSlice.actions;
 
 export default contentSlice.reducer;
