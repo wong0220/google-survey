@@ -11,8 +11,6 @@ import { nanoid } from "nanoid";
 
 export function BottomBar({ contentID }) {
   const dispatch = useDispatch();
-  //   const mltplChcOp = useSelector((state) => state.content.mltplChcOp);
-  //   const rest = Object.keys(mltplChcOp).filter((id) => id !== contentID);
 
   return (
     <Box

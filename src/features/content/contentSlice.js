@@ -44,6 +44,10 @@ export const contentSlice = createSlice({
       };
     },
 
+    OptDecrement: (state, action) => {
+      delete state.mltplChcOp[action.payload[0]].opt[action.payload[1]];
+    },
+
     SetAnsTitle: (state, action) => {
       state.mltplChcOp = {
         ...state.mltplChcOp,
@@ -77,6 +81,13 @@ export const contentSlice = createSlice({
       };
     },
 
+    OffEtc: (state, action) => {
+      state.mltplChcOp = {
+        ...state.mltplChcOp,
+        [action.payload]: { ...state.mltplChcOp[action.payload], etc: false },
+      };
+    },
+
     SetEssential: (state, action) => {
       state.mltplChcOp = {
         ...state.mltplChcOp,
@@ -105,7 +116,9 @@ export const {
   SetAnsTitle,
   SetMltAns,
   OptIncrement,
+  OptDecrement,
   SetEtc,
+  OffEtc,
   SetEssential,
   SetDuplicate,
 } = contentSlice.actions;

@@ -42,7 +42,7 @@ export function Content({ nanoID }) {
       {numberOfOps.map((opt) => (
         <RadioBtn key={opt} contentId={nanoID} nanoOptID={opt} />
       ))}
-      {isEtc && <Etc />}
+      {isEtc && <Etc contentID={nanoID} />}
       <RadioOpt contentID={nanoID} />
       <Divider sx={{ mt: 3 }} />
       <BottomBar contentID={nanoID} />
