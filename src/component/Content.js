@@ -38,7 +38,7 @@ export function Content({ nanoID }) {
           dispatch(SetAnsTitle([nanoID, event.target.value]))
         }
       />
-      <SelectBox />
+      <SelectBox contentID={nanoID} />
       {numberOfOps.map((opt) => (
         <RadioBtn key={opt} contentId={nanoID} nanoOptID={opt} />
       ))}

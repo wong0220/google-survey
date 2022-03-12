@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   mltplChcOp: {
     firstContent: {
+      type: 30,
       etc: false,
       essential: false,
       content: "제목없는 질문",
@@ -19,6 +20,7 @@ export const contentSlice = createSlice({
       state.mltplChcOp = {
         ...state.mltplChcOp,
         [action.payload]: {
+          type: 30,
           etc: false,
           essential: false,
           content: "제목없는 질문",
@@ -107,6 +109,16 @@ export const contentSlice = createSlice({
         },
       };
     },
+
+    SetType: (state, action) => {
+      state.mltplChcOp = {
+        ...state.mltplChcOp,
+        [action.payload[0]]: {
+          ...state.mltplChcOp[action.payload[0]],
+          type: action.payload[1],
+        },
+      };
+    },
   },
 });
 
@@ -121,6 +133,7 @@ export const {
   OffEtc,
   SetEssential,
   SetDuplicate,
+  SetType,
 } = contentSlice.actions;
 
 export default contentSlice.reducer;

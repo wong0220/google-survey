@@ -1,15 +1,21 @@
 import { Select, MenuItem } from "@mui/material";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { SetType } from "../features/content/contentSlice";
 
-export function SelectBox() {
-  const [age, setAge] = useState(30);
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+export function SelectBox({ contentID }) {
+  const optType = useSelector(
+    (state) => state.content.mltplChcOp[contentID].type
+  );
+  const dispatch = useDispatch();
 
   return (
-    <Select value={age} onChange={handleChange} sx={{ width: "30%", ml: 5 }}>
+    <Select
+      value={optType}
+      onChange={(event) => {
+        dispatch(SetType([contentID, event.target.value]));
+      }}
+      sx={{ width: "30%", ml: 5 }}
+    >
       <MenuItem value={10}>단답형</MenuItem>
       <MenuItem value={20}>장문형</MenuItem>
       <MenuItem value={30}>객관식 질문</MenuItem>
