@@ -34,7 +34,7 @@ export function Header() {
         id="headerID"
         variant="standard"
         margin="normal"
-        font-size="20px"
+        fontSize="20px"
         inputProps={{ style: { fontSize: 30 } }}
         size="small"
         value={title}

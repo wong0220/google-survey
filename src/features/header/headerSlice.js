@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export const headerSlice = createSlice({
-  name: "counter",
+  name: "header",
   initialState,
   reducers: {
     setFocus: (state, action) => {
