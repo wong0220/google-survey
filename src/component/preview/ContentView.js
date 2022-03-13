@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import { ShortAns } from "./ShortAns";
+import { LongAns } from "./LongAns";
 
 export function ContentView({ contentID }) {
   const answer = useSelector((state) => state.content.mltplChcOp[contentID]);
@@ -9,6 +10,8 @@ export function ContentView({ contentID }) {
   function rtrnType(type) {
     if (type === 10) {
       return <ShortAns answer={answer} contentID={contentID} />;
+    } else if (type === 20) {
+      return <LongAns answer={answer} contentID={contentID} />;
     }
   }
 
