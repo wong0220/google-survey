@@ -41,7 +41,9 @@ export function Content({ nanoID }) {
           dispatch(SetAnsTitle([nanoID, event.target.value]))
         }
       />
+
       <SelectBox contentID={nanoID} />
+
       {optType === 30 || optType === 40 || optType === 50 ? (
         numberOfOps.map((opt) => (
           <RadioBtn key={opt} contentId={nanoID} nanoOptID={opt} />
@@ -49,13 +51,17 @@ export function Content({ nanoID }) {
       ) : (
         <Answer optType={optType} />
       )}
+
       {isEtc && <Etc contentID={nanoID} />}
-      {optType === 30 || optType === 40 ? (
+
+      {optType === 30 || optType === 40 || optType === 50 ? (
         <RadioOpt contentID={nanoID} />
       ) : (
         <Box />
       )}
+
       <Divider sx={{ mt: 3 }} />
+
       <BottomBar contentID={nanoID} />
     </Box>
   );

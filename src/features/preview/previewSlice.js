@@ -19,17 +19,13 @@ export const previewSlice = createSlice({
     SetRadioVal: (state, action) => {
       if (action.payload[2] === undefined) {
         state.previewContent = {
-          ...(state.previewContent = {
-            ...state.previewContent,
-            [action.payload[0]]: action.payload[1],
-          }),
+          ...state.previewContent,
+          [action.payload[0]]: action.payload[1],
         };
       } else {
         state.previewContent = {
-          ...(state.previewContent = {
-            ...state.previewContent,
-            [action.payload[0]]: [action.payload[1], action.payload[2]],
-          }),
+          ...state.previewContent,
+          [action.payload[0]]: [action.payload[1], action.payload[2]],
         };
       }
     },
@@ -47,10 +43,17 @@ export const previewSlice = createSlice({
         [action.payload[0]]: action.payload[1],
       };
     },
+
+    SetDropVal: (state, action) => {
+      state.previewContent = {
+        ...state.previewContent,
+        [action.payload[0]]: action.payload[1],
+      };
+    },
   },
 });
 
-export const { SetSentence, SetRadioVal, SetChckVal, SetChckEtc } =
+export const { SetSentence, SetRadioVal, SetChckVal, SetChckEtc, SetDropVal } =
   previewSlice.actions;
 
 export default previewSlice.reducer;

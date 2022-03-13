@@ -7,7 +7,7 @@ import {
   TextField,
 } from "@mui/material";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SetChckVal, SetChckEtc } from "../../features/preview/previewSlice";
 
 export function ChkboxAns({ answer, contentID }) {
@@ -32,15 +32,8 @@ export function ChkboxAns({ answer, contentID }) {
   };
 
   const handleEtc = (event) => {
-    const temp = optState.concat("기타");
-    setOptState(temp);
-    dispatch(SetChckVal([contentID, temp]));
     dispatch(SetChckEtc([contentID, event.target.value]));
   };
-
-  const indexOfEtc = useSelector(
-    (state) => state.preview.previewContent[contentID]
-  ).indexOf("기타");
 
   return (
     <Box>
@@ -64,13 +57,7 @@ export function ChkboxAns({ answer, contentID }) {
           ))}
           {isEtc && (
             <FormControlLabel
-              control={
-                <Checkbox
-                  name="기타"
-                  onChange={handleChange}
-                  checked={indexOfEtc >= 0 ? true : false}
-                />
-              }
+              control={<Checkbox name="기타" onChange={handleChange} />}
               label={
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <Box>기타</Box>
