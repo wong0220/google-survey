@@ -1,7 +1,7 @@
 import { TextField, Box } from "@mui/material";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import { useDispatch, useSelector } from "react-redux";
-import { SetMltAns, OptDecrement } from "../features/content/contentSlice";
+import { SetMltAns, OptDecrement } from "../../features/content/contentSlice";
 import CancelIcon from "@mui/icons-material/Cancel";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 

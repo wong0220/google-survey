@@ -1,10 +1,12 @@
 import { Box } from "@mui/material";
-import { Header } from "./component/Header";
-import { Content } from "./component/Content";
+import { Header } from "./component/survey/Header";
+import { Content } from "./component/survey/Content";
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import { Increment } from "./features/content/contentSlice";
+import { Link } from "react-router-dom";
 
 function Survey() {
   const mltplChcOp = useSelector((state) => state.content.mltplChcOp);
@@ -20,6 +22,17 @@ function Survey() {
           alignItems: "center",
         }}
       >
+        <Box sx={{ width: "100%", mb: 2, textAlign: "right" }}>
+          <Link
+            to={{
+              pathname: "/preview",
+            }}
+          >
+            <VisibilityIcon
+              sx={{ fontSize: 40, cursor: "pointer", color: "black" }}
+            />
+          </Link>
+        </Box>
         <Header />
         {!!numberOfAnswers.length &&
           numberOfAnswers.map((answer) => {

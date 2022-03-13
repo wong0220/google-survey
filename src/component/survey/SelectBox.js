@@ -1,6 +1,6 @@
 import { Select, MenuItem } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { SetType } from "../features/content/contentSlice";
+import { SetType } from "../../features/content/contentSlice";
 
 export function SelectBox({ contentID }) {
   const optType = useSelector(

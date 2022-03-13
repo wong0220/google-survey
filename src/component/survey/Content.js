@@ -1,9 +1,9 @@
 import { Box, TextField, Divider } from "@mui/material";
-import { SelectBox } from "./SelectBox";
-import { RadioBtn } from "./RadioBtn";
-import { SetAnsTitle } from "../features/content/contentSlice";
+import { SelectBox } from "../survey/SelectBox";
+import { RadioBtn } from "../survey/RadioBtn";
+import { SetAnsTitle } from "../../features/content/contentSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { RadioOpt } from "./RadioOpt";
+import { RadioOpt } from "../survey/RadioOpt";
 import { Etc } from "./Etc";
 import { BottomBar } from "./BottomBar";
 import { Answer } from "./Answer";
@@ -41,7 +41,9 @@ export function Content({ nanoID }) {
           dispatch(SetAnsTitle([nanoID, event.target.value]))
         }
       />
+
       <SelectBox contentID={nanoID} />
+
       {optType === 30 || optType === 40 || optType === 50 ? (
         numberOfOps.map((opt) => (
           <RadioBtn key={opt} contentId={nanoID} nanoOptID={opt} />
@@ -49,13 +51,17 @@ export function Content({ nanoID }) {
       ) : (
         <Answer optType={optType} />
       )}
+
       {isEtc && <Etc contentID={nanoID} />}
-      {optType === 30 || optType === 40 ? (
+
+      {optType === 30 || optType === 40 || optType === 50 ? (
         <RadioOpt contentID={nanoID} />
       ) : (
         <Box />
       )}
+
       <Divider sx={{ mt: 3 }} />
+
       <BottomBar contentID={nanoID} />
     </Box>
   );
