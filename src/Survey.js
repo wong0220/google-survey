@@ -6,6 +6,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import { Increment } from "./features/content/contentSlice";
+import { Link } from "react-router-dom";
 
 function Survey() {
   const mltplChcOp = useSelector((state) => state.content.mltplChcOp);
@@ -22,12 +23,15 @@ function Survey() {
         }}
       >
         <Box sx={{ width: "100%", mb: 2, textAlign: "right" }}>
-          <VisibilityIcon
-            sx={{ fontSize: 40, cursor: "pointer" }}
-            onClick={() => {
-              window.open("/preview", "_blank");
+          <Link
+            to={{
+              pathname: "/preview",
             }}
-          />
+          >
+            <VisibilityIcon
+              sx={{ fontSize: 40, cursor: "pointer", color: "black" }}
+            />
+          </Link>
         </Box>
         <Header />
         {!!numberOfAnswers.length &&
