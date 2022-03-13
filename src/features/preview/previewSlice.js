@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   previewContent: {},
+  chckEtc: "",
 };
 
 export const previewSlice = createSlice({
@@ -32,9 +33,24 @@ export const previewSlice = createSlice({
         };
       }
     },
+
+    SetChckVal: (state, action) => {
+      state.previewContent = {
+        ...state.previewContent,
+        [action.payload[0]]: action.payload[1],
+      };
+    },
+
+    SetChckEtc: (state, action) => {
+      state.chckEtc = {
+        ...state.chckEtc,
+        [action.payload[0]]: action.payload[1],
+      };
+    },
   },
 });
 
-export const { SetSentence, SetRadioVal } = previewSlice.actions;
+export const { SetSentence, SetRadioVal, SetChckVal, SetChckEtc } =
+  previewSlice.actions;
 
 export default previewSlice.reducer;

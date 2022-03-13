@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { ShortAns } from "./ShortAns";
 import { LongAns } from "./LongAns";
 import { RadiAns } from "./RadioAns";
+import { ChkboxAns } from "./ChkboxAns";
 
 export function ContentView({ contentID }) {
   const answer = useSelector((state) => state.content.mltplChcOp[contentID]);
@@ -15,6 +16,8 @@ export function ContentView({ contentID }) {
       return <LongAns answer={answer} contentID={contentID} />;
     } else if (type === 30) {
       return <RadiAns answer={answer} contentID={contentID} />;
+    } else if (type === 40) {
+      return <ChkboxAns answer={answer} contentID={contentID} />;
     }
   }
 

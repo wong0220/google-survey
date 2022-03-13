@@ -7,7 +7,7 @@ import {
   TextField,
 } from "@mui/material";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SetRadioVal } from "../../features/preview/previewSlice";
 
 export function RadiAns({ answer, contentID }) {
