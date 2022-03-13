@@ -6,13 +6,13 @@ import { SetSentence } from "../../features/preview/previewSlice";
 export function ShortAns({ answer, contentID }) {
   const [shorAns, setAns] = useState("내 답변");
   const ansTitle = answer.content;
-  const essentialAns = answer.essential;
+  const isEssential = answer.essential;
 
   const dispatch = useDispatch();
   return (
     <Box>
       <Box sx={{ display: "flex", fontSize: 20 }}>
-        {ansTitle} {essentialAns && <Box sx={{ ml: 1, color: "red" }}>*</Box>}
+        {ansTitle} {isEssential && <Box sx={{ ml: 1, color: "red" }}>*</Box>}
       </Box>
       <TextField
         value={shorAns}
