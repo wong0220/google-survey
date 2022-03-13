@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import { useDispatch, useSelector } from "react-redux";
-import { OptIncrement, SetEtc } from "../features/content/contentSlice";
+import { OptIncrement, SetEtc } from "../../features/content/contentSlice";
 import { nanoid } from "nanoid";
 
 export function RadioOpt({ contentID }) {

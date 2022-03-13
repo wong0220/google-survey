@@ -1,9 +1,9 @@
 import { Box, TextField, Divider } from "@mui/material";
-import { SelectBox } from "./SelectBox";
-import { RadioBtn } from "./RadioBtn";
-import { SetAnsTitle } from "../features/content/contentSlice";
+import { SelectBox } from "../survey/SelectBox";
+import { RadioBtn } from "../survey/RadioBtn";
+import { SetAnsTitle } from "../../features/content/contentSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { RadioOpt } from "./RadioOpt";
+import { RadioOpt } from "../survey/RadioOpt";
 import { Etc } from "./Etc";
 import { BottomBar } from "./BottomBar";
 import { Answer } from "./Answer";

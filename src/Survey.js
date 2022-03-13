@@ -1,6 +1,6 @@
-import { Box, Divider } from "@mui/material";
-import { Header } from "./component/Header";
-import { Content } from "./component/Content";
+import { Box } from "@mui/material";
+import { Header } from "./component/survey/Header";
+import { Content } from "./component/survey/Content";
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { nanoid } from "nanoid";
@@ -22,7 +22,12 @@ function Survey() {
         }}
       >
         <Box sx={{ width: "100%", mb: 2, textAlign: "right" }}>
-          <VisibilityIcon sx={{ fontSize: 40, cursor: "pointer" }} />
+          <VisibilityIcon
+            sx={{ fontSize: 40, cursor: "pointer" }}
+            onClick={() => {
+              window.open("/preview", "_blank");
+            }}
+          />
         </Box>
         <Header />
         {!!numberOfAnswers.length &&

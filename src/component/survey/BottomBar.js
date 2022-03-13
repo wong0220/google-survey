@@ -5,8 +5,8 @@ import {
   SetEssential,
   SetDuplicate,
   Decrement,
-} from "../features/content/contentSlice";
-import { useDispatch, useSelector } from "react-redux";
+} from "../../features/content/contentSlice";
+import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 
 export function BottomBar({ contentID }) {

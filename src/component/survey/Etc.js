@@ -1,5 +1,5 @@
 import { Box, TextField } from "@mui/material";
-import { OffEtc } from "../features/content/contentSlice";
+import { OffEtc } from "../../features/content/contentSlice";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import CancelIcon from "@mui/icons-material/Cancel";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
