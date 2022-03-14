@@ -7,6 +7,7 @@ import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import { Increment } from "./features/content/contentSlice";
 import { Link } from "react-router-dom";
+import { bgcolor } from "@mui/system";
 
 function Survey() {
   const mltplChcOp = useSelector((state) => state.content.mltplChcOp);
