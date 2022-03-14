@@ -1,7 +1,7 @@
 import { Box, FormControl, Select, MenuItem } from "@mui/material";
 import { nanoid } from "nanoid";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SetDropVal } from "../../features/preview/previewSlice";
 
 export function DropboxAns({ answer, contentID }) {

@@ -1,4 +1,4 @@
-import { Box, Button, Alert } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { HeaderView } from "./component/preview/HeaderView";
 import { useSelector } from "react-redux";
 import { ContentView } from "./component/preview/ContentView";
@@ -12,9 +12,6 @@ export function Preview() {
 
   const numberOfAnswers = Object.keys(mltplChcOp);
   const navigate = useNavigate();
-
-  // console.log(previewAns);
-  // console.log(mltplChcOp);
 
   const submitForm = () => {
     const temp = Object.keys(mltplChcOp).filter(
