@@ -17,10 +17,6 @@ export function DropboxAns({ answer, contentID }) {
     dispatch(SetDropVal([contentID, event.target.value]));
   };
 
-  const temp = useSelector((state) =>
-    console.log(state.preview.previewContent)
-  );
-
   return (
     <Box>
       <Box sx={{ display: "flex", fontSize: 20 }}>

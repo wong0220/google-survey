@@ -1,4 +1,5 @@
 import { Box, Divider } from "@mui/material";
+import { nanoid } from "nanoid";
 import { useSelector } from "react-redux";
 
 export function ContentRes({ title }) {
@@ -32,13 +33,19 @@ export function ContentRes({ title }) {
         return (
           <Box>
             {answer.map((el) => (
-              <Box sx={{ m: 3 }}>{checkVal[el]}</Box>
+              <Box key={nanoid()} sx={{ m: 3 }}>
+                {checkVal[el]}
+              </Box>
             ))}
             <Box sx={{ m: 3 }}>기타내용 : {etcVal}</Box>
           </Box>
         );
       } else {
-        return answer.map((el) => <Box sx={{ m: 3 }}>{el}</Box>);
+        return answer.map((el) => (
+          <Box key={nanoid()} sx={{ m: 3 }}>
+            {el}
+          </Box>
+        ));
       }
     } else if (ansType === 50) {
       return <Box sx={{ m: 3 }}>{dropVal}</Box>;
