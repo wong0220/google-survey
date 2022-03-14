@@ -15,6 +15,7 @@ export function ContentRes({ title }) {
   const etcVal = useSelector((state) => state.preview.chckEtc[title]);
 
   const checkVal = useSelector((state) => state.content.mltplChcOp[title].opt);
+
   function rtrnType(type) {
     if (ansType === 30) {
       if (typeof answer === "object") {
@@ -24,7 +25,7 @@ export function ContentRes({ title }) {
           </Box>
         );
       } else {
-        return <Box sx={{ m: 3 }}>{answer}</Box>;
+        return <Box sx={{ m: 3 }}>{checkVal[answer]}</Box>;
       }
     } else if (ansType === 40) {
       if (answer.indexOf("기타") >= 0) {
