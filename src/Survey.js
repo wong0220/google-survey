@@ -41,11 +41,12 @@ function Survey() {
       </Box>
       <AddCircleRoundedIcon
         sx={{
-          fontSize: 55,
+          fontSize: 40,
           color: "#34a9fa",
-          position: "sticky",
           top: 200,
+          position: "sticky",
           cursor: "pointer",
+          ml: 2,
         }}
         onClick={() => {
           dispatch(Increment(nanoid()));
