@@ -23,9 +23,7 @@ export function ShortAns({ answer, contentID }) {
         }}
         onChange={(event) => {
           setAns(event.target.value);
-        }}
-        onBlur={() => {
-          dispatch(SetSentence([contentID, shorAns]));
+          dispatch(SetSentence([contentID, event.target.value]));
         }}
       />
     </Box>

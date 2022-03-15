@@ -1,13 +1,15 @@
 import { Box, TextField } from "@mui/material";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SetSentence } from "../../features/preview/previewSlice";
 
 export function LongAns({ answer, contentID }) {
   const [longAns, setAns] = useState("내 답변");
   const ansTitle = answer.content;
   const isEssential = answer.essential;
-
+  const temp = useSelector((state) =>
+    console.log(state.preview.previewContent)
+  );
   const dispatch = useDispatch();
   return (
     <Box>
@@ -23,9 +25,7 @@ export function LongAns({ answer, contentID }) {
         }}
         onChange={(event) => {
           setAns(event.target.value);
-        }}
-        onBlur={() => {
-          dispatch(SetSentence([contentID, longAns]));
+          dispatch(SetSentence([contentID, event.target.value]));
         }}
       />
     </Box>
